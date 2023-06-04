@@ -14,7 +14,8 @@ function getMailTitles() {
 
   const date = new Date(Date.now() - 5 * 24 * 60 * 60 * 1000);
   const formattedDate = Utilities.formatDate(date, "JST", "yyyy/MM/dd");
-  const threads = GmailApp.search("in:anywhere from:(aaa@google.co.jp OR bbb@yahoo.tepco.co.jp) after:" + formattedDate);
+  const query = "in:anywhere from:(ib-service@aozorabank.co.jp OR customer@sharebatake.com) after:" + formattedDate;
+  const threads = GmailApp.search(query);
 
   titles = "";
   for (var i = 0; i < threads.length; i++) {
